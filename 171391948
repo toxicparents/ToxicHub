@@ -1,0 +1,128 @@
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/G1xFtdWk", true))()
+library.options.underlinecolor = "rainbow"
+local w = library:CreateWindow('Meme VS')
+w:Section('Extras')
+function findCar()
+    local vehicle = workspace.Vehicles:getChildren()
+    for i=1,#vehicle do
+    if vehicle[i]:findFirstChild("owner") then
+    if vehicle[i].owner.Value == game.Players.LocalPlayer.Name then
+    myCar = vehicle[i]
+    end
+    end
+    end
+    end
+local f = w:Button("God Car", function()
+    findCar()
+	myCar.Handling.MaxSpeed.Value = 10000
+	myCar.Handling.Torque.Value = 55555
+	myCar.Handling.SteeringRadiusConstant.Value = 15000
+	myCar.Handling.FrictionRoad.Value = 250
+	myCar.Handling.Nitro.NitroSpeed.Value = 100000
+	myCar.Handling.Nitro.NitroForce.Value = 100000
+	myCar.Handling.Braking.Value = 100000
+	myCar.Handling.TurboJump.TurboJumpHeight.Value = 25
+end)
+local b = w:Button("All Gampasses", function()
+    game:GetService("Players").LocalPlayer.UserId = 1099580
+end)
+w:Section('Car Mods')
+local box = w:Box('Torque', {
+   flag = "tq";
+   type = 'number';
+}, function(new, old, enter)
+   print(new, old, enter)
+    myCar.Handling.Torque.Value = tonumber(new)
+end)
+local box = w:Box('Max Speed', {
+    flag = "ms";
+    type = 'number';
+ }, function(new, old, enter)
+    myCar.Handling.SteeringRadiusConstant.Value = tonumber(new)
+end)
+local box = w:Box('Nitro Top Speed', {
+    flag = "nts";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.Nitro.NitroSpeed.Value = tonumber(new)
+end)
+local box = w:Box('Nitro Force', {
+    flag = "nf";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.Nitro.NitroForce.Value = tonumber(new)
+end)
+local box = w:Box('Car Jump Height', {
+    flag = "cjh";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.TurboJump.TurboJumpHeight.Value = tonumber(new)
+end)
+local box = w:Box('Car Mass', {
+    flag = "cm";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.Mass.Value = tonumber(new)
+end)
+local box = w:Box('Gears 1-7', {
+    flag = "ng";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.Gears.Value = tonumber(new)
+end)
+local box = w:Box('Sticky Wheels', {
+    flag = "wt";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.StickyWheels.Value = tonumber(new)
+end)
+local box = w:Box('Friction On Roads', {
+    flag = "frr";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.FrictionRoad.Value = tonumber(new)
+end)
+local box = w:Box('Friction Off Roads', {
+    flag = "for";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.FrictionOffRoad.Value = tonumber(new)
+end)
+local box = w:Box('Steering Rate', {
+    flag = "sr";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.SteeringRate.Value = tonumber(new)
+end)
+local box = w:Box('Steering Force', {
+    flag = "sf";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.SteeringForce.Value = tonumber(new)
+end)
+local box = w:Box('Brake Force', {
+    flag = "bf";
+    type = 'number';
+ }, function(new, old, enter)
+    findCar()
+    myCar.Handling.Braking.Value = tonumber(new)
+end)
+w:Section("- Credits -")
+w:Section("Made by:")
+w:Section("Morememes#3426")
+w:Section("And")
+w:Section("ToxicParents#7542")
+w:Section("https://discord.gg/Xxv7SWU")
+w:Button("Destroy GUI", function()
+    library.container.Parent:Destroy()
+end)
